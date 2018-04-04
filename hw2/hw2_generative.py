@@ -77,7 +77,7 @@ def predict(X):
 	y_pred = []
 	for row in X:
 		x = row.reshape(-1, 1)
-		if (Zero(x) * P['zero'] > 1 * One(x) * P['one']):
+		if (Zero(x) * P['zero'] > One(x) * P['one']):
 			y_pred.append(0)
 		else:
 			y_pred.append(1)

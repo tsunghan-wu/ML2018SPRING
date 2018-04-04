@@ -21,7 +21,7 @@ data['trainX'] = normalize(data['trainX'])
 
 ### Extract data ### 
 useless = [10]
-data['trainX'] = np.delete(data['trainX'], useless, axis=0)
+data['trainX'] = np.delete(data['trainX'], useless, axis=1)
 
 age = [np.power(data['trainX'][:,0], s).reshape(-1, 1) for s in [2, 3]]
 female = [np.power(data['trainX'][:,75], s).reshape(-1, 1) for s in [2, 3]]
@@ -57,10 +57,10 @@ def log_reg(x, y, yeeeeta, times):
 		W = W - (yeeeeta/ada)*(gradient_E + Lambda * W)
 	return W
 
-def Acc(testdata, y, ww):
-	row, col = testdata.shape
-	y_predict = np.sign(np.dot(testdata, ww))
-	return np.sum(y_predict == y) / float(row)
+# def Acc(testdata, y, ww):
+# 	row, col = testdata.shape
+# 	y_predict = np.sign(np.dot(testdata, ww))
+# 	return np.sum(y_predict == y) / float(row)
 
 data['trainY'][data['trainY']==0] = -1
 data['trainX'] = add_bias(data['trainX'])
