@@ -22,11 +22,13 @@ def normalize(x):
 
 ### load testing data ###
 testX = read_data(args.test)
-testX = normalize(testX)
+testX = normalize(testX).reshape(-1, 48, 48, 1)
 
 ### load model ###
-if args.model == 'public':
-	model = load_model("./CNN_Aug.h5")
+if args.mode == 'public':
+	model = load_model("final_model.h5")
+else:
+	model = load_model("final_model.h5")
 print (model.summary())
 
 ### predict ###
