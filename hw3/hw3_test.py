@@ -25,11 +25,7 @@ testX = read_data(args.test)
 testX = normalize(testX).reshape(-1, 48, 48, 1)
 
 ### load model ###
-if args.mode == 'public':
-	model = load_model("final_model.h5")
-else:
-	model = load_model("final_model.h5")
-print (model.summary())
+model = load_model("final_model.h5")
 
 ### predict ###
 y_pred = model.predict(testX)
