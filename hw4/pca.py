@@ -49,4 +49,4 @@ for i in range(num_component):
 
 reconstruct = reconstruct.reshape(600, 600, 3)
 reconstruct += avg
-io.imsave('reconstruct.jpg', img_processing(reconstruct))
+io.imsave('reconstruction.jpg', img_processing(reconstruct))
