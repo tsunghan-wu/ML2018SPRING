@@ -56,6 +56,9 @@ with tf.Session() as sess:
 
 	feature = np.array(feature).reshape(size, -1)
 
+km = KMeans(n_clusters=2, random_state=7122)
+label = km.fit_predict(feature)
+np.save("label.npy", label)
 # km = KMeans(n_clusters=2)
 # label = km.fit_predict(feature)
 # y_pred = []

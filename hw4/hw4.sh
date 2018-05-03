@@ -1,1 +1,1 @@
-python3 hw4_test.py $1 $2 $3
+python3 hw4_ans.py $2 $3
