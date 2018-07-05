@@ -21,7 +21,7 @@ bash model_download.sh
 # training
 bash train.sh $duration(1, 2, 3, 5, 8, 13) $save_model_path
 # predict
-bash test.sh
+bash test.sh $input_data_root_dir_path $prediction_file_path
 ```
 - Executing `data_preprocessing.sh` can generate multiple `.npy` file in `./data/` directory
 - Execute `model_download.sh` can download all our model
