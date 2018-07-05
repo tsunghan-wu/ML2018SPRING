@@ -6,8 +6,9 @@ from keras.models import Model, load_model
 from keras.metrics import top_k_categorical_accuracy
 from keras.utils import CustomObjectScope
 from keras import backend as K
-
-os.environ["CUDA_VISIBLE_DEVICES"] = '1'
+root_dir = sys.argv[1]
+output_path = sys.argv[2]
+# os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 label_map = ['Hi-hat', 'Saxophone', 'Trumpet', 'Glockenspiel', 'Cello', 'Knock', 
 			'Gunshot_or_gunfire', 'Clarinet', 'Computer_keyboard', 'Keys_jangling', 
 			'Snare_drum', 'Writing', 'Laughter', 'Tearing', 'Fart', 'Oboe', 'Flute', 
@@ -110,9 +111,9 @@ def idx2label(y_pred):
         ret.append(pred)
     return ret
 
-tmp = pd.read_csv("./data/input/sample_submission.csv")
+tmp = pd.read_csv(os.path.join(root_dir, "sample_submission.csv"))
 fname = tmp['fname']
 label = pd.DataFrame({'label':idx2label(y_pred)})
 fname = pd.DataFrame({'fname':fname})
 ans = pd.concat([fname, label], axis=1)
-ans.to_csv(sys.argv[1], sep=',', index=False)
+ans.to_csv(output_path, sep=',', index=False)

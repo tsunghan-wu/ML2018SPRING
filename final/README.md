@@ -23,6 +23,9 @@ bash train.sh $duration(1, 2, 3, 5, 8, 13) $save_model_path
 # predict
 bash test.sh
 ```
+- Executing `data_preprocessing.sh` can generate multiple `.npy` file in `./data/` directory
+- Execute `model_download.sh` can download all our model
+- Execute `train.sh` and `test.sh` will train model and generate prediction file respectively
 Then, you can get the output `output.csv`.
 
 Noted that your `$input_data_toor_dir` should be that:
